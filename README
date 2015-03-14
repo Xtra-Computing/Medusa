@@ -1,0 +1,19 @@
+This project contains the following folders:
+MedusaRT/MultipleGPU/Tools - Medusa runtime, graph reader/partitioner, etc.
+MBFS - Project folder for the multiple GPU BFS application
+MPG - Project folder for the multiple GPU PageRank application
+SSSP - Project folder for the single source shortest path application
+
+
+How to build:
+The application code is compiled with the Medusa runtime code. To compile, rename the
+application folder to "Algorithm" and run "make" in the application folder.
+Before make, change the "CUDA_SDK_PATH" and "CUDPP_PATH" in the make file.
+
+
+How to write Medusa applications:
+You can use one of the sample application folder as a template.
+In this version of Medusa, you need to manually define you vertex, edge and message data structures in the following files:
+    VertexDataType.h/.cu EdgeDataType.h/.cu MessageDataType.h/.cu
+Then you need define your EMV APIs in UserOperator.h
+Finally, you need to write the code to load graph from disk in main.cu. Our default graph reader reads graph file in the GTGraph generator produced graph format (http://www.cse.psu.edu/~madduri/software/GTgraph/index.html).
