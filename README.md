@@ -26,7 +26,7 @@ We provide a set of graph files to test Medusa. These graphs are also used in ou
 - [2014-3-12] C Code for coverting a GTGraph format graph to a METIS format graph.
 - [2015-3-14] Migrate project from [google code](https://code.google.com/p/medusa-gpu/) to GitHub.
 
-##ublications##
+##Publications##
 1. Jianlong Zhong, Bingsheng He, Towards GPU-Accelerated Large-Scale Graph Processing in the Cloud. CloudCom 2013.
 2. Jianlong Zhong, Bingsheng He, Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling. Accepted by IEEE Transactions on Parallel and Distributed Systems, 2013.
 3. Jianlong Zhong, Bingsheng He, Parallel Graph Processing on Graphics Processors Made Easy. Accepted by VLDB 2013, Demonstrations Track.
