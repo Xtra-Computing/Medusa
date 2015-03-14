@@ -13,31 +13,33 @@ The current version of Medusa is implemented using the following platform.
 
 ##Datasets##
 We provide a set of graph files to test Medusa. These graphs are also used in our papers. The graph files are stored in the GTGraph output format.
-
-random.1mv.16me
-Wikitalk
-rmat.1mv.16me
-roadNet-CA
+* random.1mv.16me
+* Wikitalk
+* rmat.1mv.16me
+* roadNet-CA
 
 
 ##Project News##
-[2012-8-23] Medusa is now on Google Code.
-[2012-8-29] Technical Report on the design and implementation of Medusa is available.
-[2012-8-30] First release (Version 0.1) of Medusa source code available.
-[2013-2-28] Version 0.2 now available.
-[2014-3-12] C Code for coverting a GTGraph format graph to a METIS format graph.
-[2015-3-14] Migrate project from [google code](https://code.google.com/p/medusa-gpu/) to GitHub.
+- [2012-8-23] Medusa is now on Google Code.
+- [2012-8-29] Technical Report on the design and implementation of Medusa is available.
+- [2012-8-30] First release (Version 0.1) of Medusa source code available.
+- [2013-2-28] Version 0.2 now available.
+- [2014-3-12] C Code for coverting a GTGraph format graph to a METIS format graph.
+- [2015-3-14] Migrate project from [google code](https://code.google.com/p/medusa-gpu/) to GitHub.
 
 ##ublications##
-Jianlong Zhong, Bingsheng He, Towards GPU-Accelerated Large-Scale Graph Processing in the Cloud. CloudCom? 2013.
-Jianlong Zhong, Bingsheng He, Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling. Accepted by IEEE Transactions on Parallel and Distributed Systems, 2013. [pdf].
-Jianlong Zhong, Bingsheng He, Parallel Graph Processing on Graphics Processors Made Easy. Accepted by VLDB 2013, Demonstrations Track.
-Jianlong Zhong, Bingsheng He, Medusa: Simplified Graph Processing on GPUs. Accepted by IEEE Transactions on Parallel and Distributed Systems, April, 2013. [manuscript] [supplementary file].
-Jianlong Zhong, Bingsheng He, An overview of Medusa: simplified graph processing on GPUs. PPoPP 2012: Proceedings of 17th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (Poster paper, 2 pages) [full text].
-Jiangming Jin, Stephen John Turner, Bu-Sung Lee, Jianlong Zhong, Bingsheng He, HPC Simulations of Information Propagation Over Social Networks. Procedia CS 9: 292-301 (2012) [full text].
-Jianlong Zhong, Bingsheng He, GViewer: GPU-Accelerated Graph Visualization and Mining. SocInfo? 2011: 304-307 [full text]
-More Recent Projects on Parallel & Distributed Graph Processing
-Google Pregel
-GraphLab
-GPS: A Graph Processing System
-Medusa is developed by the Parallel and Distributed Computing Center, Nanyang Technological University. Contact: ZHONG Jianlong (jzhong2@ntu.edu.sg).
+1. Jianlong Zhong, Bingsheng He, Towards GPU-Accelerated Large-Scale Graph Processing in the Cloud. CloudCom? 2013.
+2. Jianlong Zhong, Bingsheng He, Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling. Accepted by IEEE Transactions on Parallel and Distributed Systems, 2013. [pdf].
+3. Jianlong Zhong, Bingsheng He, Parallel Graph Processing on Graphics Processors Made Easy. Accepted by VLDB 2013, Demonstrations Track.
+4. Jianlong Zhong, Bingsheng He, Medusa: Simplified Graph Processing on GPUs. Accepted by IEEE Transactions on Parallel and Distributed Systems, April, 2013. [manuscript] [supplementary file].
+5. Jianlong Zhong, Bingsheng He, An overview of Medusa: simplified graph processing on GPUs. PPoPP 2012: Proceedings of 17th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (Poster paper, 2 pages) [full text].
+6. Jiangming Jin, Stephen John Turner, Bu-Sung Lee, Jianlong Zhong, Bingsheng He, HPC Simulations of Information Propagation Over Social Networks. Procedia CS 9: 292-301 (2012) [full text].
+7. Jianlong Zhong, Bingsheng He, GViewer: GPU-Accelerated Graph Visualization and Mining. SocInfo? 2011: 304-307 [full text]
+
+##More Recent Projects on Parallel & Distributed Graph Processing##
+* Google Pregel
+* GraphLab
+* GPS: A Graph Processing System
+
+
+*Medusa is developed by the Parallel and Distributed Computing Center, Nanyang Technological University. Contact: ZHONG Jianlong (jzhong2@ntu.edu.sg).*
