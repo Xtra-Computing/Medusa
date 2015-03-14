@@ -1,5 +1,4 @@
-# Medusa
-Medusa: Building GPU-based Parallel Sparse Graph Applications with Sequential C/C++ Code
+# Medusa: Building GPU-based Parallel Sparse Graph Applications with Sequential C/C++ Code
 
 ##Introduction##
 The graphics processing unit (GPU) has been adopted to accelerate sparse graph processing algorithms such as BFS and shortest path. However, it is difﬁcult to write correct and efﬁcient GPU programs and even more difﬁcult for graph processing due to the irregularities of graph structures. To simplify graph processing on GPUs, we introduce Medusa, a programming framework which enables developers to leverage the capabilities of GPUs by writing sequential C/C++ code. Medusa focuses on sparse graph, which is more challenging than the dense graph for GPU processing, due to its more irregular computation and memory access patterns.
