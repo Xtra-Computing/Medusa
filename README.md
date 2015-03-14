@@ -28,13 +28,13 @@ We provide a set of graph files to test Medusa. These graphs are also used in ou
 - [2015-3-14] Migrate project from [google code](https://code.google.com/p/medusa-gpu/) to GitHub.
 
 ##ublications##
-1. Jianlong Zhong, Bingsheng He, Towards GPU-Accelerated Large-Scale Graph Processing in the Cloud. CloudCom? 2013.
-2. Jianlong Zhong, Bingsheng He, Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling. Accepted by IEEE Transactions on Parallel and Distributed Systems, 2013. [pdf].
+1. Jianlong Zhong, Bingsheng He, Towards GPU-Accelerated Large-Scale Graph Processing in the Cloud. CloudCom 2013.
+2. Jianlong Zhong, Bingsheng He, Kernelet: High-Throughput GPU Kernel Executions with Dynamic Slicing and Scheduling. Accepted by IEEE Transactions on Parallel and Distributed Systems, 2013.
 3. Jianlong Zhong, Bingsheng He, Parallel Graph Processing on Graphics Processors Made Easy. Accepted by VLDB 2013, Demonstrations Track.
-4. Jianlong Zhong, Bingsheng He, Medusa: Simplified Graph Processing on GPUs. Accepted by IEEE Transactions on Parallel and Distributed Systems, April, 2013. [manuscript] [supplementary file].
-5. Jianlong Zhong, Bingsheng He, An overview of Medusa: simplified graph processing on GPUs. PPoPP 2012: Proceedings of 17th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (Poster paper, 2 pages) [full text].
-6. Jiangming Jin, Stephen John Turner, Bu-Sung Lee, Jianlong Zhong, Bingsheng He, HPC Simulations of Information Propagation Over Social Networks. Procedia CS 9: 292-301 (2012) [full text].
-7. Jianlong Zhong, Bingsheng He, GViewer: GPU-Accelerated Graph Visualization and Mining. SocInfo? 2011: 304-307 [full text]
+4. Jianlong Zhong, Bingsheng He, Medusa: Simplified Graph Processing on GPUs. Accepted by IEEE Transactions on Parallel and Distributed Systems, April, 2013..
+5. Jianlong Zhong, Bingsheng He, An overview of Medusa: simplified graph processing on GPUs. PPoPP 2012: Proceedings of 17th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (Poster paper, 2 pages).
+6. Jiangming Jin, Stephen John Turner, Bu-Sung Lee, Jianlong Zhong, Bingsheng He, HPC Simulations of Information Propagation Over Social Networks. Procedia CS 9: 292-301 (2012).
+7. Jianlong Zhong, Bingsheng He, GViewer: GPU-Accelerated Graph Visualization and Mining. SocInfo? 2011: 304-307。
 
 ##More Recent Projects on Parallel & Distributed Graph Processing##
 * [Google Pregel](http://dl.acm.org/citation.cfm?id=1807184)
