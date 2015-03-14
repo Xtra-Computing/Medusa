@@ -13,10 +13,10 @@ The current version of Medusa is implemented using the following platform.
 
 ##Datasets##
 We provide a set of graph files to test Medusa. These graphs are also used in our papers. The graph files are stored in the GTGraph output format.
-* random.1mv.16me
-* Wikitalk
-* rmat.1mv.16me
-* roadNet-CA
+* [random.1mv.16me](https://github.com/JianlongZhong/Medusa/raw/master/datasets/random.1mv.16me.tar.gz)
+* [Wikitalk](https://github.com/JianlongZhong/Medusa/raw/master/datasets/WikiTalk.tar.gz)
+* [rmat.1mv.16me](https://github.com/JianlongZhong/Medusa/raw/master/datasets/rmat.1mv.16me.tar.gz)
+* [roadNet-CA](https://github.com/JianlongZhong/Medusa/raw/master/datasets/roadNet-CA.tar.gz)
 
 
 ##Project News##
@@ -37,9 +37,9 @@ We provide a set of graph files to test Medusa. These graphs are also used in ou
 7. Jianlong Zhong, Bingsheng He, GViewer: GPU-Accelerated Graph Visualization and Mining. SocInfo? 2011: 304-307 [full text]
 
 ##More Recent Projects on Parallel & Distributed Graph Processing##
-* Google Pregel
-* GraphLab
-* GPS: A Graph Processing System
+* [Google Pregel](http://dl.acm.org/citation.cfm?id=1807184)
+* [GraphLab](http://graphlab.org/)
+* [GPS: A Graph Processing System](http://infolab.stanford.edu/gps/)
 
 
 *Medusa is developed by the Parallel and Distributed Computing Center, Nanyang Technological University. Contact: ZHONG Jianlong (jzhong2@ntu.edu.sg).*
