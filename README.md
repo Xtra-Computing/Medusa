@@ -8,8 +8,8 @@ Medusa offers a small set of user-deﬁned APIs, and embraces a runtime system t
 
 ##Platform##
 The current version of Medusa is implemented using the following platform.
-*Programming Language - CUDA, C/C++
-*Build - MS Visual Studio/gcc, CUDA nvcc
+* Programming Language - CUDA, C/C++
+* Build - MS Visual Studio/gcc, CUDA nvcc
 
 ##Datasets##
 We provide a set of graph files to test Medusa. These graphs are also used in our papers. The graph files are stored in the GTGraph output format.
