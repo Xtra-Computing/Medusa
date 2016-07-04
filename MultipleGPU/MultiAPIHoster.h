@@ -3,7 +3,9 @@
 
 #include "../MedusaRT/APIKernelWrappers.h"
 #include "../MultipleGPU/MultiGraphStorage.h"
-#include <cutil_inline.h>
+//#include <cutil_inline.h>
+#include <helper_cuda.h>
+#define cutilCheckMsg(x) getLastCudaError(x)
 #include "../Algorithm/Configuration.h"
 #include "../MultipleGPU/PartitionManager.h"
 #include "../MultipleGPU/Gather.cu"

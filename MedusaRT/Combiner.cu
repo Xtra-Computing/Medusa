@@ -7,9 +7,8 @@
 * Copyleft for non-commercial use only. No warranty.
 ****************************************************/
 #include "Combiner.h"
-#include <cutil.h>
-#include <cutil_inline_runtime.h>
-#include <cuda_runtime.h>
+#include <helper_timer.h>
+
 #include <cudpp.h>
 #include "../MultipleGPU/MultiGraphStorage.h"
 #include "../Algorithm/Configuration.h"
@@ -83,7 +82,7 @@ void Medusa_Combiner::init(CUDPPDatatype dt, CUDPPOperator op, int gpu_id)
 void Medusa_Combiner::combineAllDevice()
 {
 	int pi = 0;
-	unsigned int timer;
+	StopWatchInterface *timer = NULL;
 	float duration;
 	cutCreateTimer(&timer);
 	cutResetTimer(timer);

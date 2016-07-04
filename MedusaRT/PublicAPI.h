@@ -10,7 +10,7 @@
 #define PUBLICAPI_H
 
 #include "Utilities.h"
-#include "APIHosters.h"
+//#include "APIHosters.h"
 #include "../Algorithm/EdgeDataType.h"
 #include "../Algorithm/VertexDataType.h"
 #include "../Algorithm/MessageDataType.h"

@@ -1,0 +1,6 @@
+.*project
+*/*/*/build/*
+*/*/build/*
+*/build/*
+build/*
+

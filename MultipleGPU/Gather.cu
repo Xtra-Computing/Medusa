@@ -1,5 +1,4 @@
-#include <cutil_inline.h>
-
+#include <helper_cuda.h>
 
 template <class T>
 __global__ void gather_kernel(T *dst, T *src, int *index, int thread_num, int element_num)

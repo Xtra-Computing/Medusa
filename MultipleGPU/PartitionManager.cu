@@ -5,7 +5,7 @@
 #include <fstream>
 #include <algorithm>
 #include <map>
-#include <cutil_inline.h>
+//#include <cutil_inline.h>
 
 long long make_64bit(int high, int low)
 {
@@ -350,7 +350,7 @@ void GTGraph::get_parition(GraphPartition *gp_array, char *graph_file_name, char
 				it ++;
 			}
 		}
-		//Éú³Éphysical id
+		//ï¿½ï¿½ï¿½physical id
 		for(int ti = 0; ti < MGLOBAL::max_hop; ti ++)
 		{
 
@@ -423,7 +423,7 @@ void GTGraph::get_parition(GraphPartition *gp_array, char *graph_file_name, char
 				temp_edge.weight = int_it->second;
 				gp_array[tail_partition].graph.AddEdge(temp_edge);
 				added_edge_num[tail_partition] ++;
-				gp_array[tail_partition].replica_edge_index[0] ++;//·ÇreplicaµÄ±ß×÷Îªreplica edgeµÄoffset
+				gp_array[tail_partition].replica_edge_index[0] ++;//ï¿½ï¿½replicaï¿½Ä±ï¿½ï¿½ï¿½Îªreplica edgeï¿½ï¿½offset
 
 
 			}
