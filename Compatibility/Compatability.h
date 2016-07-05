@@ -49,5 +49,9 @@
 #define cutGetTimerValue(x) sdkGetTimerValue(x)
 #endif
 
+#ifndef Replace_cutGetAverageTimerValue
+#define Replace_cutGetAverageTimerValue
+#define cutGetAverageTimerValue(x) sdkGetAverageTimerValue(x)
+#endif
 
 #endif /* COMPATABILITY_H_ */

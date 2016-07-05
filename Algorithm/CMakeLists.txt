@@ -23,6 +23,11 @@ set(MGPU_FILES ../MultipleGPU/Gather.cu ../MultipleGPU/GPUDef.h ../MultipleGPU/M
  ../MultipleGPU/MultiUtilities.h ../MultipleGPU/PartitionManager.cu ../MultipleGPU/PartitionManager.h
   ../MultipleGPU/WEQueue.cpp ../MultipleGPU/WEQueue.h)
 
+set(TOOLS_FILES ../Tools/RegularityAnalysis.h ../Tools/RegularityAnalysis.cpp ../Tools/ReplicaNumberAnalysis.h 
+../Tools/ReplicaNumberAnalysis.cpp)
+
+set(COMPATIBLE_CONFIG_FILES  ../Compatibility/Compatability.h)
+
 include_directories(${CUDA_SDK_UTIL_PTH}/inc ${CUDPP_PATH}/include)
 link_directories(${CUDA_SDK_UTIL_PTH}/lib ${CUDPP_PATH}/lib)
     
@@ -51,6 +56,6 @@ list(APPEND CUDA_NVCC_FLAGS "-Xcompiler -fopenmp")
  
 set_compute_capability(${CUDA_DEVICE_VERSION})
 
-cuda_add_executable(MBFS ${MBFS_APP_FILES} ${MEDUSA_FILES} ${MGPU_FILES} ../Compatibility/Compatability.h)
+cuda_add_executable(MBFS ${MBFS_APP_FILES} ${MEDUSA_FILES} ${MGPU_FILES} ${TOOLS_FILES} ${COMPATIBLE_CONFIG_FILES})
 
     

@@ -18,13 +18,10 @@
 #include "../MultipleGPU/PartitionManager.h"
 #include "../Tools/ReplicaNumberAnalysis.h"
 
-//#include <cutil.h>
-//#include <cutil_inline_runtime.h>
-
+#include "../Compatibility/Compatability.h"
 #include <helper_cuda.h>
 #include <helper_functions.h>
 #include <helper_timer.h>
-#include "../Compatibility/Compatability.h"
 #include <cuda_runtime.h>
 #include <fstream>
 
@@ -169,7 +166,7 @@ int main(int argc, char **argv)
 	float t;//timer value
 	StopWatchInterface *timer = NULL;
 	cutCreateTimer(&timer);
-	cutResetTimer(timer);
+	cutResetTimer(&timer);
 
 
 	GTGraph gt_graph;
@@ -286,7 +283,7 @@ int main(int argc, char **argv)
 	
 	//---------------------------------------------------------------------------------------------------------//
 	//execute<BSP loop>
-	cutStartTimer(timer);
+	cutStartTimer(&timer);
 	bool exe_temp = true;
 	while(exe_temp)
 	{	
@@ -305,7 +302,7 @@ int main(int argc, char **argv)
 		
 	}
 
-	cutStopTimer(timer);
+	cutStopTimer(&timer);
 #ifdef MULTIPLE_RUM
 	}
 #endif
@@ -315,9 +312,9 @@ int main(int argc, char **argv)
 
 
 #ifdef MULTIPLE_RUM
-	t = cutGetTimerValue(timer)/RUN_TIMES;
+	t = cutGetTimerValue(&timer)/RUN_TIMES;
 #else
-	t = cutGetTimerValue(timer);
+	t = cutGetTimerValue(&timer);
 #endif
 	printf("GPU BFS %.3f ms with %d steps\n",t, MGLOBAL::super_step); 
 	//---------------------------------------------------------------------------------------------------------//
@@ -343,7 +340,7 @@ int main(int argc, char **argv)
 		printf("Test CPU counter part, only accept one partition\n");
 		exit(-1);
 	}
-	unsigned int cpu_timer;
+	StopwatchInterface* cpu_timer=NULL;
 	cutCreateTimer(&cpu_timer);
 	for(int test_count = 0; test_count < RUN_TIMES; test_count ++)
 	{
@@ -353,11 +350,11 @@ int main(int argc, char **argv)
 			MGLOBAL::gpu_def[0].vertexArray.level[i] = MVT_Init_Value;
 		MGLOBAL::gpu_def[0].vertexArray.level[rootVertexID] = 0;
 
-		cutStartTimer(cpu_timer);
+		cutStartTimer(&cpu_timer);
 		Medusa_Exec_CPU(MGLOBAL::gpu_def[0].vertexArray, MGLOBAL::gpu_def[0].edgeArray);
-		cutStopTimer(cpu_timer);
+		cutStopTimer(&cpu_timer);
 	}
-	t = cutGetAverageTimerValue(cpu_timer);
+	t = cutGetAverageTimerValue(&cpu_timer);
 	printf("CPU BFS %.3f ms\n", t); 
 
 #endif
