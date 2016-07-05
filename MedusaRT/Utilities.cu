@@ -1,4 +1,4 @@
-#include <cutil.h>
+//#include <cutil.h>
 #include <cuda_runtime.h>
 #ifdef _WIN32
 #include <windows.h>
@@ -7,7 +7,10 @@
 
 #ifdef VIS
 #include <cuda_gl_interop.h>
-#include <cutil_inline_runtime.h>
+//#include <cutil_inline_runtime.h>
+
+#include <helper_functions.h>
+#include <helper_timer.h>
 #endif
 
 #include "GraphStorage.h"

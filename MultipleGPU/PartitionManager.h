@@ -9,6 +9,7 @@
 #include <string>
 #include <utility>
 #include <list>
+#include <helper_cuda.h>
 #ifdef _WIN32
 #include <hash_map>
 #define HASH_SPACE stdext

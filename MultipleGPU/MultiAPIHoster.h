@@ -3,7 +3,11 @@
 
 #include "../MedusaRT/APIKernelWrappers.h"
 #include "../MultipleGPU/MultiGraphStorage.h"
-#include <cutil_inline.h>
+//#include <cutil_inline.h>
+#include <helper_cuda.h>
+#include <helper_timer.h>
+
+#include "../Compatibility/Compatability.h"
 #include "../Algorithm/Configuration.h"
 #include "../MultipleGPU/PartitionManager.h"
 #include "../MultipleGPU/Gather.cu"
@@ -64,11 +68,11 @@ struct MGFunctorHolder<MG_EDGE>
 	static void Run(OP op)
 	{
 		#ifdef MEASURE_TIME
-		unsigned int timer;
+		StopWatchInterface *timer=NULL;;
 		float elapsed_time;
 
 		cutCreateTimer(&timer);
-		cutStartTimer(timer);
+		cutStartTimer(&timer);
 		#endif
 
 #ifdef UPDATE_REPLICA
@@ -91,11 +95,11 @@ struct MGFunctorHolder<MG_EDGE>
 		}
 
 		#ifdef MEASURE_TIME
-		cutStopTimer(timer);
-		elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("Gather time:%f ms\n", elapsed_time);
-		cutResetTimer(timer);
-		cutStartTimer(timer);
+		cutResetTimer(&timer);
+		cutStartTimer(&timer);
 		#endif
 
 
@@ -185,16 +189,16 @@ struct MGFunctorHolder<MG_EDGE>
 		}
 		//end of timing purpose
 
-		cutStopTimer(timer);
-		elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("Non-replica edge processing and data exchange:%f ms\n",elapsed_time);
 		MyCheckErrorMsg("After copy back");
 
 
 
 		//apply edge processor to replicas
-		cutResetTimer(timer);
-		cutStartTimer(timer);
+		cutResetTimer(&timer);
+		cutStartTimer(&timer);
 		#endif
 
 
@@ -224,21 +228,21 @@ struct MGFunctorHolder<MG_EDGE>
 		}
 		//end of timing purpose
 
-		cutStopTimer(timer);
-		elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("Scatter:%f ms\n",elapsed_time);
 		MyCheckErrorMsg("After copy back");
 
 
 
 		//apply edge processor to replicas
-		cutResetTimer(timer);
-		cutStartTimer(timer);
+		cutResetTimer(&timer);
+		cutStartTimer(&timer);
 
 
 
-		cutResetTimer(timer);
-		cutStartTimer(timer);
+		cutResetTimer(&timer);
+		cutStartTimer(&timer);
 		#endif
 
 
@@ -269,8 +273,8 @@ struct MGFunctorHolder<MG_EDGE>
 		}
 
 		#ifdef MEASURE_TIME
-		cutStopTimer(timer);
-		elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("Edge Processor on replica %f ms\n",elapsed_time);
 		cutilCheckMsg("End of edge async");
 		#endif
@@ -300,11 +304,11 @@ struct MGFunctorHolder<MGMH_EDGE>
 	{
 	
 #ifdef MEASURE_TIME		
-		unsigned int timer;
+		StopWatchInterface *timer=NULL;;
 		float elapsed_time;
 
 		cutCreateTimer(&timer);
-		cutStartTimer(timer);
+		cutStartTimer(&timer);
 #endif
 
 		int stage = MGLOBAL::super_step % MGLOBAL::max_hop;
@@ -332,13 +336,13 @@ struct MGFunctorHolder<MGMH_EDGE>
 			}
 
 #ifdef MEASURE_TIME
-			cutStopTimer(timer);
-			elapsed_time = cutGetTimerValue(timer);
+			cutStopTimer(&timer);
+			elapsed_time =cutStopTimer(&timer);
 			printf("Gather time:%f ms\n", elapsed_time);
 
 
-			cutResetTimer(timer);
-			cutStartTimer(timer);
+			cutResetTimer(&timer);
+			cutStartTimer(&timer);
 #endif
 
 			for(int i = 0; i < MGLOBAL::num_gpu_to_use; i ++)
@@ -433,16 +437,16 @@ struct MGFunctorHolder<MGMH_EDGE>
 
 
 #ifdef MEASURE_TIME
-			cutStopTimer(timer);
-			elapsed_time = cutGetTimerValue(timer);
+			cutStopTimer(&timer);
+			elapsed_time =cutStopTimer(&timer);
 			printf("Data exchange:%f ms\n",elapsed_time);
 			MyCheckErrorMsg("After copy back");
 
 
 
 			//scatter the results when copy-to-gpu and edge operator on original is done
-			cutResetTimer(timer);
-			cutStartTimer(timer);
+			cutResetTimer(&timer);
+			cutStartTimer(&timer);
 #endif
 
 			for(int i = 0; i < MGLOBAL::num_gpu_to_use; i ++)
@@ -470,8 +474,8 @@ struct MGFunctorHolder<MGMH_EDGE>
 			}
 
 #ifdef MEASURE_TIME
-			cutStopTimer(timer);
-			elapsed_time = cutGetTimerValue(timer);
+			cutStopTimer(&timer);
+			elapsed_time =cutStopTimer(&timer);
 			printf("Scatter time:%f ms\n", elapsed_time);
 #endif
 
@@ -480,8 +484,8 @@ struct MGFunctorHolder<MGMH_EDGE>
 
 
 #ifdef MEASURE_TIME
-		cutResetTimer(timer);
-		cutStartTimer(timer);
+		cutResetTimer(&timer);
+		cutStartTimer(&timer);
 #endif
 
 		for(int i = 0; i < MGLOBAL::num_gpu_to_use; i ++)
@@ -506,8 +510,8 @@ struct MGFunctorHolder<MGMH_EDGE>
 		//end of timing purpose
 
 #ifdef MEASURE_TIME
-		cutStopTimer(timer);
-		elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		elapsed_time =cutStopTimer(&timer);
 		printf("Edge processing:%f ms\n",elapsed_time);
 		MyCheckErrorMsg("After copy back");
 #endif
@@ -531,9 +535,9 @@ struct MGFunctorHolder<MGMH_VERTEX>
 	static void Run(OP op)
 	{
 		int stage = MGLOBAL::super_step % MGLOBAL::max_hop;
-		unsigned int timer;
+		StopWatchInterface *timer=NULL;;
 		cutCreateTimer(&timer);
-		cutStartTimer(timer);
+		cutStartTimer(&timer);
 		for(int i = 0; i < MGLOBAL::num_gpu_to_use; i ++)
 		{
 			medusaSetDevice(i);
@@ -552,8 +556,8 @@ struct MGFunctorHolder<MGMH_VERTEX>
 			cudaDeviceSynchronize();
 			MyCheckErrorMsg("vertexProcWrapper");
 		}
-		cutStopTimer(timer);
-		float elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		float elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("MGFunctorHolder<VERTEX>:%f ms\n", elapsed_time);
 	}
 };
@@ -610,9 +614,9 @@ struct MGFunctorHolder<MG_VERTEX>
 	template<class OP>
 	static void Run(OP op)
 	{
-		unsigned int timer;
+		StopWatchInterface *timer=NULL;;
 		cutCreateTimer(&timer);
-		cutStartTimer(timer);
+		cutStartTimer(&timer);
 		for(int i = 0; i < MGLOBAL::num_gpu_to_use; i ++)
 		{
 			medusaSetDevice(i);
@@ -632,8 +636,8 @@ struct MGFunctorHolder<MG_VERTEX>
 			cudaDeviceSynchronize();
 			MyCheckErrorMsg("vertexProcWrapper");
 		}
-		cutStopTimer(timer);
-		float elapsed_time = cutGetTimerValue(timer);
+		cutStopTimer(&timer);
+		float elapsed_time =cutStopTimer(&timer);
 		DBGPrintf("MGFunctorHolder<VERTEX>:%f ms\n", elapsed_time);
 	}
 };
@@ -660,15 +664,15 @@ struct FunctorHolder<EDGE>
 		//!!!!
 		int gridX = MGLOBAL::gpu_def[0].device_prop.multiProcessorCount * 6;
 		//cudaFuncSetCacheConfig("edgeProcWrapper", cudaFuncCachePreferL1);
-		//unsigned int timer;
+		//StopWatchInterface *timer=NULL;;
 		//cutCreateTimer(&timer);
-		//cutStartTimer(timer);
+		//cutStartTimer(&timer);
 		MyCheckErrorMsg("before edgeProcWrapper");
 
 		edgeProcWrapper<<<gridX, 256>>>(MGLOBAL::super_step, op, gridX*256);
 		cudaDeviceSynchronize();
-		//cutStopTimer(timer);
-		//float elapsed_time = cutGetTimerValue(timer);
+		//cutStopTimer(&timer);
+		//float elapsed_time =cutStopTimer(&timer);
 		//printf("Edge Processor:%f ms\n",elapsed_time);
 		MyCheckErrorMsg("edgeProcWrapper");
 	}

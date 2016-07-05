@@ -12,10 +12,16 @@
 #ifdef _WIN32
 #include <Windows.h>
 #endif
-#include <cutil.h>
+
 #include <cuda_runtime.h>
-#include <cutil_inline.h>
-#include <cutil_gl_inline.h>
+//#include <cutil_inline.h>
+//#include <cutil_gl_inline.h>
+//#include <cutil.h>
+#include <helper_cuda.h>
+#include <helper_cuda_gl.h>
+#include <helper_functions.h>
+#include <helper_timer.h>
+#include "../Compatibility/Compatability.h"
 #include <cuda_gl_interop.h>
 
 extern GLuint vertex_vbo;

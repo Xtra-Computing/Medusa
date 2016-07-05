@@ -7,7 +7,7 @@
 
 #ifndef UTILITIES_H
 #define UTILITIES_H
-
+#include "../Compatibility/Compatability.h"
 /**
 * malloc CPU side memory
 * @param [out] ptr return memory pointer to prt

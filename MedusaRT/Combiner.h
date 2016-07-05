@@ -3,6 +3,14 @@
 
 #include <cudpp.h>
 #include <pthread.h>
+
+#include <helper_cuda.h>
+#include <helper_functions.h>
+#include <helper_timer.h>
+#include <cuda_runtime.h>
+
+#include "../Compatibility/Compatability.h"
+
 /**
 *
 *
