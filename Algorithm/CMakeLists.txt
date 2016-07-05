@@ -41,12 +41,11 @@ find_package(Threads)
 find_package(OpenMP REQUIRED)
     # Add To Non-NVCC Compiler Flag
     message("Attention:"${OpenMP_CXX_FLAGS})
+    message("Attention:"${OpenMP_CXX_LIBRARIES})
     list(APPEND CUDA_NVCC_FLAGS "-Xcompiler ${OpenMP_CXX_FLAGS}")
     
 # CC Version
 set(CUDA_DEVICE_VERSION "20" CACHE STRING "CUDA Device Version")
-
-list(APPEND CUDA_NVCC_FLAGS "-Xcompiler -fopenmp")
 
  # Macro for Compute Capability
  macro(set_compute_capability cc)
@@ -57,5 +56,5 @@ list(APPEND CUDA_NVCC_FLAGS "-Xcompiler -fopenmp")
 set_compute_capability(${CUDA_DEVICE_VERSION})
 
 cuda_add_executable(MBFS ${MBFS_APP_FILES} ${MEDUSA_FILES} ${MGPU_FILES} ${TOOLS_FILES} ${COMPATIBLE_CONFIG_FILES})
-
-    
+target_link_libraries(MBFS cudpp)
+target_link_libraries(MBFS gomp)

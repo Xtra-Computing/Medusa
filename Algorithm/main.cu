@@ -19,10 +19,10 @@
 #include "../Tools/ReplicaNumberAnalysis.h"
 
 #include "../Compatibility/Compatability.h"
+#include <cuda_runtime.h>
 #include <helper_cuda.h>
 #include <helper_functions.h>
 #include <helper_timer.h>
-#include <cuda_runtime.h>
 #include <fstream>
 
 
@@ -175,9 +175,6 @@ int main(int argc, char **argv)
 
 
 	InitHostDS(gp_array);
-
-
-
 
 
 	//find the logical ID of the vertex with largest out-going degree
@@ -340,7 +337,7 @@ int main(int argc, char **argv)
 		printf("Test CPU counter part, only accept one partition\n");
 		exit(-1);
 	}
-	StopwatchInterface* cpu_timer=NULL;
+	StopWatchInterface* cpu_timer=NULL;
 	cutCreateTimer(&cpu_timer);
 	for(int test_count = 0; test_count < RUN_TIMES; test_count ++)
 	{

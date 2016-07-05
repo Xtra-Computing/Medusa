@@ -1,6 +1,5 @@
-#include <cutil_inline.h>
 #include "WEQueue.h"
-
+#include <helper_cuda.h>
 
 /**********************************************************
  * Queue related functions.
