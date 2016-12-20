@@ -8,7 +8,7 @@ Medusa offers a small set of user-deﬁned APIs, and embraces a runtime system t
 
 ##Platform##
 The current version of Medusa is implemented using the following platform.
-* Programming Language - CUDA 7.4, C++03
+* Programming Language - CUDA 7.5, C++03
 * Build - MS Visual Studio/gcc, CUDA nvcc
 
 ##Datasets##
