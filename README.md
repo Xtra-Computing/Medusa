@@ -42,4 +42,4 @@ We provide a set of graph files to test Medusa. These graphs are also used in ou
 * [GPS: A Graph Processing System](http://infolab.stanford.edu/gps/)
 
 
-*Medusa is developed by the Parallel and Distributed Computing Center, Nanyang Technological University. Contact: ZHONG Jianlong (jzhong2@ntu.edu.sg).*
+*Medusa was developed by Jianlong Zhong at the Parallel and Distributed Computing Center, Nanyang Technological University.*
